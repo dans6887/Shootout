@@ -1,13 +1,6 @@
 import time
 import os
-import keyboard
-
-try:
-    import keyboard
-    print("Keyboard module is already installed.")
-except ImportError as e:
-    print("Error: The 'keyboard' module is not installed. Please install it using 'pip install keyboard' and try again.", e)
-
+import random
 def shootout_game():
     os.system('cls||clear') #clears the screen before the game starts
 
@@ -17,31 +10,29 @@ def shootout_game():
     time.sleep(2)
 
     print("You are in a shootout with a robot.")
-    print("You have 3 seconds to draw your weapon and shoot.")
-    print("If you shoot first, you win. If the robot shoots first, you lose.")
+    #print("You have 10 seconds to draw your weapon and shoot.")
+    #print("If you shoot first, you win. If the robot shoots first, you lose.")
 
-    time.sleep(5)
+    #the wait phase
+    print("Get ready...")
+    time.sleep(random.uniform(2, 5)) #waits a random amount of time between 2 and 5 seconds
 
-    os.system('cls||clear') #clears the screen
-
+    #the draw phase
+    print("\n----DRAW!!!!----")
     start_time = time.time()
-    input("Press [ENTER] to draw your weapon...")
+    input("Press [ENTER] to shoot: ")
+    # Note: input() waits for the user to press Enter and release it.
     end_time = time.time()
-
     reaction_time = end_time - start_time
-    input("Press [ENTER] to shoot...")
-    if keyboard.is_pressed('enter'): #check if the user pressed enter to shoot
-        if reaction_time < 3: #check if reaction time is less than 3 seconds
-        
-            print("You shot the robot first! You win!") #if the user shot and won, print the message and exit the game
-            exit
-        else:
-            print("The robot shot you first! You lose!")#if the user shot but lost, print the message and restart the game
-            shootout_game()
     
+    #win/loss logic
+    print(f"\nYour reaction time was {reaction_time:.2f} seconds.")
+    if reaction_time <=2.0: #if the player reacts in 2 seconds or less, they win
+        print("You shot the robot in time! You win!")
     else:
-        print("You didn't shoot in time! The robot shot you first! You lose!")#if the user didnt shoot at all, print the message and restart the game
-        shootout_game()
+        print("The robot shot you! You lose!")
+    
+    
 
 if __name__ == "__main__":
     shootout_game()
