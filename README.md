@@ -6,6 +6,7 @@ In 1982 usborn Computer Programs published Computer Battlegames. Written by Dani
 
 This version of the program was written in python. It performs the same functions with some variation on message outputs and the use of imported libraries.
 <br>
+
 <img width="630" height="886" alt="image" src="https://github.com/user-attachments/assets/0d1de2fb-6652-44fc-a459-696f25bab0eb" />
 
 The images below show how the code was laid out in the 1980s for BASIC. Although simple even by today's standards, these programs are a great way to learn both the basics of programming and some of the more advanced capabilities
